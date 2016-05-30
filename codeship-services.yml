@@ -1,12 +1,17 @@
+# App with no special configuration
 app:
   build:
     dockerfile_path: Dockerfile
+
+# App with test files
 test:
   build:
     dockerfile_path: Dockerfile
   volumes:
     - test:/app/test
   entrypoint: npm run
+
+# App with mongodb
 test_functional:
   build:
     dockerfile_path: Dockerfile
