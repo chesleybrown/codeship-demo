@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+const MongoClient = require("mongodb").MongoClient;
+const packageJson = require("../package");
+const program = require("commander");
+
+program
+	.version(packageJson.version)
+	.usage("[options]")
+	.option("-f, --file <file>", "The path to the json file to load")
+	.parse(process.argv);
+
+// Load json file
+const file = require(program.file);
+
+// Connect to the database
+MongoClient.connect("mongodb://mongodb:27017/demo", function(err, db) {
+	if (err) {
+		throw err;
+	}
+
+	const collection = db.collection("employees");
+	const employees = file.employees;
+
+	collection.insert(employees, {w:1}, function(err, result) {
+		if (err) {
+			throw err;
+		}
+		db.close();
+		console.log("Inserted " + employees.length + " employees");
+	});
+});

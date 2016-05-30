@@ -1,0 +1,22 @@
+- name: Tests
+  type: parallel
+  steps:
+    - name: Run lint tests
+      service: test
+      command: lint
+    - name: Run unit tests
+      service: test
+      command: test-unit
+    - name: Run functional tests
+      service: test_functional
+      command: test-functional
+    - name: Run help
+      service: app
+      command: --help
+
+- name: Registry
+  type: push
+  tag: master
+  service: app
+  image_tag: latest
+  image_name: chesleybrown/codeship-demo

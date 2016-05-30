@@ -1,0 +1,30 @@
+{
+	"name": "kit-deployer",
+	"version": "1.0.0",
+	"private": true,
+	"description": "",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/chesleybrown/codeship-demo"
+	},
+	"author": "Chesley Brown <chesley@invisionapp.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/chesleybrown/codeship-demo/issues"
+	},
+	"homepage": "https://github.com/chesleybrown/codeship-demo",
+	"scripts": {
+		"test-unit": "mocha test/unit --recursive",
+		"test-functional": "curl http://mongodb:27017 && mocha test/functional --recursive",
+		"lint": "eslint src test"
+	},
+	"dependencies": {
+		"commander": "2.9.0",
+		"mongodb": "2.1.20"
+	},
+	"devDependencies": {
+		"chai": "3.5.0",
+		"eslint": "2.3.0",
+		"mocha": "2.4.5"
+	}
+}

@@ -1,0 +1,19 @@
+app:
+  build:
+    dockerfile_path: Dockerfile
+test:
+  build:
+    dockerfile_path: Dockerfile
+  volumes:
+    - test:/app/test
+  entrypoint: npm run
+test_functional:
+  build:
+    dockerfile_path: Dockerfile
+  volumes:
+    - test:/app/test
+  entrypoint: npm run
+  links:
+    - mongodb
+mongodb:
+  image: mongo:3.3.6

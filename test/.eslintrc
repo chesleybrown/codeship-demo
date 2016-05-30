@@ -1,0 +1,11 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "indent": ["error", "tab"]
+  }
+}
