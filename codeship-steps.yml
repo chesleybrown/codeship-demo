@@ -13,10 +13,3 @@
     - name: Run help
       service: app
       command: --help
-
-- name: Registry
-  type: push
-  tag: master
-  service: app
-  image_tag: latest
-  image_name: chesleybrown/codeship-demo
